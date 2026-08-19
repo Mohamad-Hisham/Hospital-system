@@ -1,4 +1,4 @@
-from Person import Person
+from person import Person
 '''
 
 
@@ -17,7 +17,7 @@ class Staff(Person):
         self.shift = shift
         self.experience = experience
         self.base_salary = base_salary
-        Staff.total_staff_count += 1
+        Staff._total_staff_count += 1
 
     def view_info(self) -> str:
         '''View detailed staff information.'''
@@ -58,22 +58,3 @@ class Staff(Person):
         """Return all staff working night shifts."""
         return [member for member in staff_list if "night" in member.shift.lower()]
 
-staff_members = [
-    # Doctors
-    Staff("Dr. Ahmed Mansour", 48, "Consultant Cardiologist", "Cardiology", "Morning Shift", 18, 18000),
-    Staff("Dr. Sarah Khalil", 36, "General Surgeon", "Surgery Department", "Rotational Shift", 9, 14000),
-    Staff("Dr. Omar Tarek", 31, "Pediatrician", "Pediatrics Department", "Day Shift", 4, 8500),
-    Staff("Dr. Laila Hassan", 42, "Radiologist", "X-Ray & Radiology", "Flexible Shift", 12, 13500),
-
-    # Nurses
-    Staff("Mona El-Sayed", 34, "Head Nurse", "Intensive Care Unit (ICU)", "Morning Shift", 10, 6500),
-    Staff("Ali Mostafa", 23, "Emergency Nurse", "Emergency Department", "Night Shift", 2, 4200),
-    Staff("Nourhan Youssef", 27, "Ward Nurse", "Cardiology", "Night Shift", 4, 4800),
-
-    # Technicians and Pharmacists
-    Staff("Hassan Mahmoud", 29, "Lab Technician", "Pathology Lab", "Day Shift", 5, 5200),
-    Staff("Yasmine Adel", 33, "Clinical Pharmacist", "Pharmacy", "Evening Shift", 7, 7500),
-    Staff("Karim Nabil", 40, "Operations Manager", "Hospital Administration", "Morning Shift", 14, 11000)
-]
-
-get_staff_by_department = Staff.get_staff_by_department(staff_members, "Emergency Department")
